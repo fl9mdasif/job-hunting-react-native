@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Stack, useRouter, useSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
 import {
@@ -26,6 +27,21 @@ const JobDetails = () => {
     const params = useSearchParams();
     const router = useRouter();
 
+=======
+import { Text, View, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl } from 'react-native';
+import { Stack, useRouter, useSearchParams } from 'expo-router';
+import { useCallback, useState } from 'react';
+import { Company, JobAbout, JobFooter, JobTabs, ScreenHeaderBtn, Specifics } from '../../components';
+import { COLORS, icons, SIZES } from '../../constants'
+import useFetch from '../../Hook/useFetch';
+
+const tabs = ["About", "Qualifications", "Responsibilities"];
+
+
+const JobDetails = () => {
+    const params = useSearchParams()
+    const router = useRouter()
+>>>>>>> 5f5e9884d2b21d6e99a263a45935282ce47f1a2d
     const { data, isLoading, error, refetch } = useFetch("job-details", {
         job_id: params.id,
     });
@@ -39,7 +55,10 @@ const JobDetails = () => {
         setRefreshing(false)
     }, []);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5f5e9884d2b21d6e99a263a45935282ce47f1a2d
     const displayTabContent = () => {
         switch (activeTab) {
             case "Qualifications":
@@ -83,12 +102,20 @@ const JobDetails = () => {
                         />
                     ),
                     headerRight: () => (
+<<<<<<< HEAD
                         <ScreenHeaderBtn iconUrl={icons.share} dimension='60%' />
+=======
+                        <ScreenHeaderBtn iconUrl={icons.share}
+                            dimension='60%' />
+>>>>>>> 5f5e9884d2b21d6e99a263a45935282ce47f1a2d
                     ),
                     headerTitle: "",
                 }}
             />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5f5e9884d2b21d6e99a263a45935282ce47f1a2d
             <>
                 <ScrollView showsVerticalScrollIndicator={false}
                     refreshControl={
@@ -121,7 +148,13 @@ const JobDetails = () => {
                 </ScrollView>
 
                 <JobFooter url={data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results/'} />
+<<<<<<< HEAD
             </>
+=======
+
+            </>
+
+>>>>>>> 5f5e9884d2b21d6e99a263a45935282ce47f1a2d
         </SafeAreaView>
     );
 };
